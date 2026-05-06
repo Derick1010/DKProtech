@@ -1,0 +1,293 @@
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: #f4f7fc;
+            color: #1a2639;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* paleta corporativa */
+        :root {
+            --primary: #0b2b5c;
+            --primary-light: #1f3f77;
+            --accent: #e63946;
+            --accent-dark: #b71c2b;
+            --gray-bg: #f8fafd;
+            --card-white: #ffffff;
+            --text-dark: #0d1b2a;
+            --shadow: 0 12px 28px rgba(0,0,0,0.06), 0 4px 12px rgba(0,20,40,0.03);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0a2647 0%, #132b4f 100%);
+            color: white;
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.4rem;
+        }
+
+        nav {
+            background: white;
+            box-shadow: var(--shadow);
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e2eaf1;
+        }
+
+        nav a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            border-bottom-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            background: var(--card-white);
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,40,80,0.05);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 650;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-left: 8px solid var(--accent);
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            color: var(--primary-light);
+            margin: 0.5rem 0 0.2rem;
+            font-size: 1.3rem;
+        }
+
+        button, .btn-like {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: 0 4px 10px rgba(0,30,60,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        button:hover {
+            background: var(--primary-light);
+            transform: scale(1.02);
+            box-shadow: 0 10px 18px rgba(0,50,100,0.3);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.8rem 0 0.5rem;
+            background: #f9fcff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 1rem 0.8rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 1rem 0.8rem;
+            border-bottom: 1px solid #dde7f0;
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #f2f9ff;
+        }
+
+        #carrito, #pago {
+            background: linear-gradient(145deg, #ffffff, #f5faff);
+        }
+
+        .carrito-vacio {
+            color: #5e6f8c;
+            font-style: italic;
+            padding: 0.5rem 0;
+        }
+
+        .total-carrito {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+
+        .pago-grid {
+            background: #eef3fa;
+            padding: 2rem;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 600px;
+            margin: 1.5rem 0;
+        }
+
+        .pago-grid input {
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #bdcbd9;
+            border-radius: 60px;
+            font-size: 1rem;
+            background: white;
+            transition: 0.2s;
+        }
+
+        .pago-grid input:focus {
+            border-color: var(--primary);
+            outline: 2px solid rgba(20,60,130,0.3);
+        }
+
+        .row-flex {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .servicio-card {
+            background: #fafdff;
+            padding: 1.8rem 1rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 6px 14px rgba(0,20,40,0.04);
+            border: 1px solid #e1ecf5;
+        }
+
+        .servicio-card span {
+            font-size: 3rem;
+        }
+
+        aside {
+            background: #0d2b45;
+            color: #f0f6fc;
+            padding: 2.5rem 2rem;
+            border-radius: 32px 32px 0 0;
+            margin: 2rem 2rem 0;
+        }
+
+        aside h2 {
+            color: white;
+            border-left-color: var(--accent);
+        }
+
+        footer {
+            background: #051a2b;
+            color: #adc0d3;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .img-deco {
+            background: url('images/security-badge.svg') no-repeat center right;
+            background-size: contain;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        
+        .cart-count {
+            background: var(--accent);
+            color: white;
+            border-radius: 30px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.8rem;
+            margin-left: 0.4rem;
+        }
+
+        .btn-pagar {
+            background: var(--accent);
+            font-size: 1.3rem;
+            padding: 1rem 2rem;
+            width: fit-content;
+        }
+
+        .btn-pagar:hover {
+            background: var(--accent-dark);
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #b7d0e5;
+            margin: 2rem 0;
+        }
+    </style>
